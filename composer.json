@@ -1,0 +1,13 @@
+{
+  "name": "levimiller/328/application",
+  "description": "My first Fat-Free MVC project",
+  "authors": [
+    {
+      "name": "Levi Miller",
+      "email": "LAM614@outlook.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
