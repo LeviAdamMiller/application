@@ -1,0 +1,22 @@
+#background{
+    background-color: #a8b0ff;
+}
+
+#codeBrain{
+    height: 1000px;
+    object-fit: cover;
+}
+
+#footer {
+background-color: #a4a3a3;
+}
+
+#heading,#heading2,#heading3{
+    padding: 10px;
+
+}
+#headerButton{
+
+    float: right !important;
+    padding-right: 10px;
+}
