@@ -62,7 +62,7 @@
                     <p>                                                       </p>
                     <p id="quote3" class="card-text">"Everyone makes a difference here, we ar constantly
                         improving and evolving" - Helin, Senior Developer</p>
-                    <h5 class="card-title pb-3 mb-4 border-bottom"></h5>
+                    <h5 class="card-title pb-3 mb-4 border-bottom"><!-- border --> null</h5>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center">
