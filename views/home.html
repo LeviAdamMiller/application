@@ -1,3 +1,6 @@
+<!-- Levi Miller -->
+<!-- 1/20/24 -->
+<!-- home.html: homepage for job application -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +65,7 @@
                     <p>                                                       </p>
                     <p id="quote3" class="card-text">"Everyone makes a difference here, we ar constantly
                         improving and evolving" - Helin, Senior Developer</p>
-                    <h5 class="card-title pb-3 mb-4 border-bottom"><!-- border --> null</h5>
+                    <h5 class="card-title pb-3 mb-4 border-bottom"><!-- border -->&nbsp;</h5>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center">

@@ -1,4 +1,9 @@
 <?php
+/*
+Levi Miller
+1/20/24
+index.php: routing page so application is the default directory
+*/
 // turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
