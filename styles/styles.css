@@ -56,3 +56,8 @@ background-color: #9898a1;
 #bodyButton{
   margin-bottom: 30px;
 }
+
+#personalTitle{
+    float: right;
+    margin: 20px;
+}
