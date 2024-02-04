@@ -8,34 +8,36 @@
 </head>
 <body>
 <div>
-    <h6 id="heading">AICompanyLLC</h6>
-    <span id="heading2">Software Engineer Internship</span>  <button id="headerButton" class="btn btn-primary">APPLY NOW</button>
-    <p id="heading3">New York City, Paid, 12 weeks</p>
+    <h6 id="heading" class="personalHeading">AICompanyLLC</h6>
+    <span id="heading2" class="personalHeading">Software Engineer Internship</span>
+    <p id="heading3" class="personalHeading">New York City, Paid, 12 weeks</p>
 </div>
-<div class="col-md-8">
-    <form>
+<div class="card">
+<h1 id="personalHeading">Personal Information</h1>
+    <h5 class="border-bottom" id="border"><!-- border -->&nbsp;</h5>
+   <div class="row">
+    <div class="col-md-8">
+    <form id="personalForm" action="#" method="post">
     <div class="row">
         <div class="col">
-            <label for="firstName">First Name</label>
+            <label for="firstName" class="label">First Name</label>
             <input type="text" class="form-control" placeholder="sarah" id="firstName">
         </div>
         <div class="col">
-            <label for="lastName">Last Name</label>
+            <label for="lastName" class="label">Last Name</label>
             <input type="text" class="form-control" placeholder="smith" id="lastName">
         </div>
     </div>
 
     <div class="col">
-        <label for="email">Email</label>
+        <label for="email" class="label">Email</label>
         <input type="email" class="form-control" placeholder="email" id="email">
     </div>
 
         <div class="row">
             <div class="col">
-                <label for="state">State</label>
+                <label for="state" class="label">State</label>
                 <select class="form-control"  id="state">
-                    <option selected>Washington</option>
-                    <option>Alabama</option>
                     <option selected>Washington</option>
                     <option>Alabama</option>
                     <option>Alaska</option>
@@ -60,12 +62,23 @@
                 </select>
             </div>
             <div class="col">
-                <label for="phone">Phone Number</label>
+                <label for="phone" class="label">Phone Number</label>
                 <input type="tel" class="form-control" placeholder="smith" id="phone">
             </div>
         </div>
-
     </form>
+    </div>
+       <div class="col-4">
+         <div class="col-md-auto" id="privacyDiv">
+             <p><strong>Note: </strong>All information is protected by
+                 our <strong>privacy policy. </strong>Profile information can
+            only be viewed by others with your permission</p>
+         </div>
+              <div class="col-md-auto" id="nextButtonContainer">
+                  <button id="nextButton" class="btn btn-primary ">next ></button>
+              </div>
+       </div>
+   </div>
 </div>
 </body>
 </html>
