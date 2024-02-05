@@ -117,3 +117,17 @@ margin-left: 18px;
 #yearsExperience,#willingToRelocate{
     display: flex;
 }
+#jobButton{
+    width: 100%;
+    float: right;
+
+}
+#summaryPage{
+    display: flex;
+}
+#profilePicture{
+    width: 100%;
+}
+#summaryButton{
+    width: 50%;
+}
