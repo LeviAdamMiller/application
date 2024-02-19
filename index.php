@@ -136,6 +136,9 @@ $f3->route('GET|POST /JobOpenings', function ($f3) {
         // Redirect to summary route
         $f3->reroute('summary');
     }
+
+    $f3->set('JobOpenings', checkedData::getJobOpenings());
+    $f3->set('IndustryVerticals', checkedData::getIndustryVerticals());
     // display views page
     $view = new Template();
     echo $view->render('views/jobOpenings.html');

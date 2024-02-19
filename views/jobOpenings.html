@@ -26,94 +26,20 @@ Description: html for mailing list page
         <label class="label">Software Development Jobs</label>
         <form action="#" method="post">
             <div class="jobOpenings">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="JavaScript" id="JavaScript">
-                    <label for="JavaScript" class="form-check-label">JavaScript</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="PHP" id="PHP">
-                    <label class="form-check-label" for="PHP">
-                        PHP
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="Java" id="Java">
-                    <label class="form-check-label" for="Java">
-                        Java
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="Python" id="Python">
-                    <label class="form-check-label" for="Python">
-                        Python
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="HTML" id="HTML">
-                    <label class="form-check-label" for="HTML">
-                        HTML
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="CSS" id="CSS">
-                    <label class="form-check-label" for="CSS">
-                        CSS
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="ReactJS" id="ReactJS">
-                    <label class="form-check-label" for="ReactJS">
-                        ReactUS
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="NodeJs" id="NodeJs">
-                    <label class="form-check-label" for="NodeJs">
-                        NodeJs
-                    </label>
-                </div>
+                <repeat group="{{ @JobOpenings }}" value="{{ @JobOpening}}">
+                    <label>
+                        <input type="checkbox"
+                               name="mail[]"
+                               id="{{ @JobOpening }}"
+                               value="{{ @JobOpening }}"
+                        > {{ ucwords(@JobOpening) }}
+                        </input>
+                    </label><br>
+                </repeat>
             </div>
-            <label class="label">Industry Verticals</label>
-            <div class="jobOpenings">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="SaaS" id="SaaS">
-                    <label for="SaaS" class="form-check-label">SaaS</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="HealthTech" id="HealthTech">
-                    <label class="form-check-label" for="HealthTech">
-                        Health tech
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="AgTech" id="AgTech">
-                    <label class="form-check-label" for="AgTech">
-                        Ag tech
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="HRtech" id="HRtech">
-                    <label class="form-check-label" for="HRtech">
-                        HR tech
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="industrialTech" id="industrialTech">
-                    <label class="form-check-label" for="industrialTech">
-                        Industrial tech
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="mail[]" value="CyberSecurity" id="CyberSecurity">
-                    <label class="form-check-label" for="CyberSecurity">
-                        Cybersecurity
-                    </label>
-                </div>
-
                 <div class="col-md-auto" id="nextButtonContainer">
                     <button type="submit" id="jobButton" class="btn btn-primary">next ></button>
                 </div>
-            </div>
         </form>
     </div>
 </div>

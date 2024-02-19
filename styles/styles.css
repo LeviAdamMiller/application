@@ -115,9 +115,10 @@ margin-left: 18px;
 .form-check{
     width: 300px;
 }
-#yearsExperience,#willingToRelocate{
+#yearsExperience,#willingToRelocate,.jobOpenings{
     display: flex;
     justify-content: space-evenly;
+    margin: 15px;
 }
 #jobButton{
     width: 250px;
