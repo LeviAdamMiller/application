@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 
 //require the autoload file
 require_once('vendor/autoload.php');
-require ('model/validate.php');
+require('model/validate.php');
 
 //instantiate Fat-Free framework
 $f3 = Base::instance();
@@ -29,20 +29,21 @@ $f3->route('GET|POST /personal', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $lastNameValid = Validate::validName($_POST['lastName']);
-
-
-        if(!Validate::validName($_POST['firstName'])){
+        if (!Validate::validName($_POST['firstName'])) {
             $f3->set('errors["firstName"]', "Invalid first name");
         }
 
-        if(!Validate::validName($_POST['lastName'])){
+        if (!Validate::validName($_POST['lastName'])) {
             $f3->set('errors["lastName"]', "Invalid last name");
         }
 
-
-        if(!Validate::validEmail($_POST['email'])){
+        if (!Validate::validEmail($_POST['email'])) {
             $f3->set('errors["email"]', "Invalid email");
+
+
+            if (!Validate::validPhone($_POST['phone'])) {
+                $f3->set('errors["phone"]', "Invalid Phone format");
+            }
         }
 
 
@@ -74,11 +75,11 @@ $f3->route('GET|POST /experience', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        if(!Validate::validExperience($_POST['years'])){
+        if (!Validate::validExperience($_POST['years'])) {
             $f3->set('errors["years"]', "Invalid Years ");
         }
 
-        if(!Validate::validGithub($_POST['Github'])){
+        if (!Validate::validGithub($_POST['Github'])) {
             $f3->set('errors["Github"]', "Invalid Github Link");
         }
 

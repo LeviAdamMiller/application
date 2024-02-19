@@ -17,7 +17,7 @@ class Validate {
     }
 
     static function validPhone($phone){
-        return $phone;
+        return preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $phone);
 
     }
 

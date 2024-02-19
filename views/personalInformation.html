@@ -45,7 +45,7 @@ Description: html for personal info page
 
                 <div class="col">
                     <label for="email" class="label">Email</label>
-                    <input type="email" class="form-control" placeholder="email" name="email" id="email">
+                    <input class="form-control" placeholder="email" name="email" id="email" required>
                     <check if="{{ isset(@errors['email']) }}">
                         <span class="span">{{ @errors['email'] }}</span>
                     </check>
@@ -80,7 +80,10 @@ Description: html for personal info page
                     </div>
                     <div class="col">
                         <label for="phone" class="label">Phone Number</label>
-                        <input type="tel" class="form-control" placeholder="smith" name="phone" id="phone" required>
+                        <input type="tel" class="form-control" placeholder="###-###-####" name="phone" id="phone" required>
+                        <check if="{{ isset(@errors['phone']) }}">
+                            <span class="span">{{ @errors['phone'] }}</span>
+                        </check>
                     </div>
                 </div>
 
