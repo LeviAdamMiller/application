@@ -138,7 +138,6 @@ $f3->route('GET|POST /JobOpenings', function ($f3) {
     }
 
     $f3->set('JobOpenings', checkedData::getJobOpenings());
-    $f3->set('IndustryVerticals', checkedData::getIndustryVerticals());
     // display views page
     $view = new Template();
     echo $view->render('views/jobOpenings.html');
