@@ -11,6 +11,7 @@ error_reporting(E_ALL);
 //require the autoload file
 require_once('vendor/autoload.php');
 require('model/validate.php');
+require('model/data-layer.php');
 
 //instantiate Fat-Free framework
 $f3 = Base::instance();
@@ -106,6 +107,9 @@ $f3->route('GET|POST /experience', function ($f3) {
         }
     }
 
+    // Get data from the model and add to the F3 "hive"
+    $f3->set('years', checkedData::getYears());
+    $f3->set('relocate', checkedData::getRelocate());
     // display views page
     $view = new Template();
     echo $view->render('views/experience.html');

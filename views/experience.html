@@ -47,38 +47,36 @@ Description: html for experience page
                     <div class="row">
                         <label class="label">Years Experience</label>
                         <div class="col" id="yearsExperience">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="years[]" type="radio" id="0-2" value="0-2">
-                                <label class="form-check-label" for="0-2">0-2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="years[]" type="radio" id="2-4" value="2-4">
-                                <label class="form-check-label" for="2-4">2-4</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="years[]" type="radio" id="4+" value="4+">
-                                <label class="form-check-label" for="4+">4+</label>
-                            </div>
+                            <repeat group="{{ @years }}" value="{{ @year}}">
+                                <label>
+                                    <input type="radio"
+                                           name="years[]"
+                                           id="{{ @year }}"
+                                           value="{{ @year }}"
+                                    > {{ ucwords(@year) }}
+                                    </input>
+                                </label><br>
+                            </repeat>
+                            <check if="{{ isset(@errors['years']) }}">
+                                <span class="span">{{ @errors['years'] }}</span>
+                            </check>
                         </div>
-                        <check if="{{ isset(@errors['years']) }}">
-                            <span class="span">{{ @errors['years'] }}</span>
-                        </check>
                     </div>
                     <div class="row">
                         <label class="label">Willing To Relocate</label>
                         <div class="col" id="willingToRelocate">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relocate[]" type="radio" id="yes" value="yes">
-                                <label class="form-check-label" for="yes">Yes</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input"  name="relocate[]" type="radio" id="no" value="no">
-                                <label class="form-check-label" for="no">No</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="relocate[]" type="radio" id="maybe" value="maybe">
-                                <label class="form-check-label" for="maybe">Maybe</label>
-                            </div>
+                            <repeat group="{{ @relocate }}" value="{{ @relocating }}">
+                                <label>
+                                    <input type="radio"
+                                           name="relocate[]"
+                                           id="{{ @relocating }}"
+                                           value="{{ @relocating }}"
+                                    > {{ ucwords(@relocating) }}
+                                    </input>
+                                </label><br>
+                            </repeat>
+
+                        </div>
                         </div>
                     </div>
                     <div>
@@ -88,7 +86,6 @@ Description: html for experience page
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 </div>
 </body>

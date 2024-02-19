@@ -1,7 +1,10 @@
 <?php
-
+/*
+Levi Miller
+2/16/24
+validator.php  validating name, Github, experience years, phone and email.
+*/
 class Validate {
-
     static function validName($name){
         return ctype_alpha($name);
     }
