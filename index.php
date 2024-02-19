@@ -41,11 +41,11 @@ $f3->route('GET|POST /personal', function ($f3) {
         if (!Validate::validEmail($_POST['email'])) {
             $f3->set('errors["email"]', "Invalid email");
 
-
+        }
             if (!Validate::validPhone($_POST['phone'])) {
                 $f3->set('errors["phone"]', "Invalid Phone format");
             }
-        }
+
 
 
         //validate the data
