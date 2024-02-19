@@ -40,7 +40,7 @@ Description: html for experience page
                             <label for="Github" class="label">Github</label>
                             <input type="text" class="form-control" placeholder="github.com/my_github" name="Github" id="Github">
                             <check if="{{ isset(@errors['Github']) }}">
-                                <span>{{ @errors['Github'] }}</span>
+                                <span class="span">{{ @errors['Github'] }}</span>
                             </check>
                         </div>
                     </div>
@@ -49,26 +49,20 @@ Description: html for experience page
                         <div class="col" id="yearsExperience">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="years[]" type="radio" id="0-2" value="0-2">
-                                <check if="{{ isset(@errors['years[]']) }}">
-                                    <span>{{ @errors['years[]'] }}</span>
-                                </check>
                                 <label class="form-check-label" for="0-2">0-2</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="years[]" type="radio" id="2-4" value="2-4">
-                                <check if="{{ isset(@errors['years[]']) }}">
-                                    <span>{{ @errors['years[]'] }}</span>
-                                </check>
                                 <label class="form-check-label" for="2-4">2-4</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="years[]" type="radio" id="4+" value="4+">
-                                <check if="{{ isset(@errors['years[]']) }}">
-                                    <span>{{ @errors['years[]'] }}</span>
-                                </check>
                                 <label class="form-check-label" for="4+">4+</label>
                             </div>
                         </div>
+                        <check if="{{ isset(@errors['years']) }}">
+                            <span class="span">{{ @errors['years'] }}</span>
+                        </check>
                     </div>
                     <div class="row">
                         <label class="label">Willing To Relocate</label>

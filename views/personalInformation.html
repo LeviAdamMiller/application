@@ -30,7 +30,7 @@ Description: html for personal info page
                         <input type="text" class="form-control" placeholder="sarah" name="firstName" id="firstName" required>
                         <!-- Display an error if there is one -->
                         <check if="{{ isset(@errors['firstName']) }}">
-                            <span>{{ @errors['firstName'] }}</span>
+                            <span class="span">{{ @errors['firstName'] }}</span>
                         </check>
                     </div>
                     <div class="col">
@@ -38,7 +38,7 @@ Description: html for personal info page
                         <input type="text" class="form-control" placeholder="smith" name="lastName" id="lastName" required>
                         <!-- Display an error if there is one -->
                         <check if="{{ isset(@errors['lastName']) }}">
-                            <span>{{ @errors['lastName'] }}</span>
+                            <span class="span">{{ @errors['lastName'] }}</span>
                         </check>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ Description: html for personal info page
                     <label for="email" class="label">Email</label>
                     <input type="email" class="form-control" placeholder="email" name="email" id="email">
                     <check if="{{ isset(@errors['email']) }}">
-                        <span>{{ @errors['email'] }}</span>
+                        <span class="span">{{ @errors['email'] }}</span>
                     </check>
                 </div>
 

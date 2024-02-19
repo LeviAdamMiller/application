@@ -74,8 +74,8 @@ $f3->route('GET|POST /experience', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        if(!Validate::validExperience($_POST['Years[]'])){
-            $f3->set('errors["Years[]"]', "Invalid Years ");
+        if(!Validate::validExperience($_POST['years'])){
+            $f3->set('errors["years"]', "Invalid Years ");
         }
 
         if(!Validate::validGithub($_POST['Github'])){
@@ -103,7 +103,7 @@ $f3->route('GET|POST /experience', function ($f3) {
             // Redirect to summary route
             $f3->reroute('JobOpenings');
         }
-        }
+    }
 
     // display views page
     $view = new Template();
