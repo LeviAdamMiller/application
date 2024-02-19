@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 
 //require the autoload file
 require_once('vendor/autoload.php');
+require ('model/validate.php');
 
 //instantiate Fat-Free framework
 $f3 = Base::instance();
@@ -28,21 +29,39 @@ $f3->route('GET|POST /personal', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        $lastNameValid = Validate::validName($_POST['lastName']);
+
+
+        if(!Validate::validName($_POST['firstName'])){
+            $f3->set('errors["firstName"]', "Invalid first name");
+        }
+
+        if(!Validate::validName($_POST['lastName'])){
+            $f3->set('errors["lastName"]', "Invalid last name");
+        }
+
+
+        if(!Validate::validEmail($_POST['email'])){
+            $f3->set('errors["email"]', "Invalid email");
+        }
+
+
         //validate the data
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $state = $_POST['state'];
-
-        // Put the data in the session array
-        $f3->set('SESSION.firstName', $firstName);
-        $f3->set('SESSION.lastName', $lastName);
-        $f3->set('SESSION.email', $email);
-        $f3->set('SESSION.phone', $phone);
-        $f3->set('SESSION.state', $state);
-
-        $f3->reroute('experience');
+        // If there are no errors
+        if (empty($f3->get('errors'))) {
+            $firstName = $_POST['firstName'];
+            $lastName = $_POST['lastName'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $state = $_POST['state'];
+            // Put the data in the session array
+            $f3->set('SESSION.firstName', $firstName);
+            $f3->set('SESSION.lastName', $lastName);
+            $f3->set('SESSION.email', $email);
+            $f3->set('SESSION.phone', $phone);
+            $f3->set('SESSION.state', $state);
+            $f3->reroute('experience');
+        }
     }
 
     // display views page
@@ -54,37 +73,38 @@ $f3->route('GET|POST /personal', function ($f3) {
 $f3->route('GET|POST /experience', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $bio = $_POST['biography'];
-        $git = $_POST['Github'];
 
-        $f3->set('SESSION.biography', $bio);
-        $f3->set('SESSION.Github', $git);
-
-
-        // Validate the data
-        if (isset($_POST['years'])) {
-            $years = implode(", ", $_POST['years']);
-        } else {
-            $years = "None selected";
+        if(!Validate::validExperience($_POST['Years[]'])){
+            $f3->set('errors["Years[]"]', "Invalid Years ");
         }
 
-        // Put the data in the session array
-        $f3->set('SESSION.years', $years);
+        if(!Validate::validGithub($_POST['Github'])){
+            $f3->set('errors["Github"]', "Invalid Github Link");
+        }
 
+        if (empty($f3->get('errors'))) {
             // Validate the data
+            $years = implode(", ", $_POST['years']);
+
             if (isset($_POST['relocate'])) {
                 $relocate = implode(", ", $_POST['relocate']);
             } else {
                 $relocate = "None selected";
             }
 
+            $bio = $_POST['biography'];
+            $git = $_POST['Github'];
+
             // Put the data in the session array
+            $f3->set('SESSION.years', $years);
             $f3->set('SESSION.relocate', $relocate);
-
-
+            $f3->set('SESSION.biography', $bio);
+            $f3->set('SESSION.Github', $git);
             // Redirect to summary route
             $f3->reroute('JobOpenings');
         }
+        }
+
     // display views page
     $view = new Template();
     echo $view->render('views/experience.html');
