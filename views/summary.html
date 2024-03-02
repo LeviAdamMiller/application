@@ -28,8 +28,8 @@ Description: html for summary file
                 <li class="list-group-item">State: {{ @SESSION.state }}</li>
                 <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
                 <li class="list-group-item">Github Link: {{ @SESSION.Github }}</li>
-                <li class="list-group-item">Experience: {{ @SESSION.years }}</li>
-                <li class="list-group-item">Willing to relocate: {{ @SESSION.relocate }}</li>
+                <li class="list-group-item">Experience: {{ @SESSION.applicant->getExperience() }}</li>
+                <li class="list-group-item">Willing to relocate: {{ @SESSION.applicant->getRelocate() }}</li>
                 <li class="list-group-item">Mailing Lists: {{ @SESSION.mail }}</li>
                 <li class="list-group-item">Industry Verticals: {{ @SESSION.vertical }}</li>
             </ul>

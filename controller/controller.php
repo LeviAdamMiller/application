@@ -1,6 +1,7 @@
 <?php
 
-class controller{
+class controller
+{
 
     private $_f3; //Fat-free router
 
@@ -9,18 +10,20 @@ class controller{
         $this->_f3 = $f3;
     }
 
-    function home(){
+    function home()
+    {
         // display views page
         $view = new Template();
         echo $view->render('views/home.html');
     }
 
-    function personalInformation(){
+    function personalInformation()
+    {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (!Validate::validName($_POST['firstName'])) {
-               $this->_f3->set('errors["firstName"]', "Invalid first name");
+                $this->_f3->set('errors["firstName"]', "Invalid first name");
             }
 
             if (!Validate::validName($_POST['lastName'])) {
@@ -36,7 +39,6 @@ class controller{
             }
 
 
-
             //validate the data
             // If there are no errors
             if (empty($this->_f3->get('errors'))) {
@@ -46,10 +48,10 @@ class controller{
                 $phone = $_POST['phone'];
                 $state = $_POST['state'];
 
-                if(isset($_POST['mailing'])){
+                if (isset($_POST['mailing'])) {
                     $JobOpenings = [];
                     $IndustryVertical = [];
-                    $applicant = new applicant_SubscribedToList($JobOpenings,$IndustryVertical);
+                    $applicant = new applicant_SubscribedToList($JobOpenings, $IndustryVertical);
                     $applicant->setFname($firstName);
                     $applicant->setLname($lastName);
                     $applicant->setEmail($email);
@@ -57,7 +59,7 @@ class controller{
                     $applicant->setState($state);
                     $this->_f3->set('SESSION.applicant', $applicant);
                 } else {
-                    $applicant = new Applicant($firstName,$lastName,$email,$phone,$state, $relocate="",$years="",$bio="",$git="");
+                    $applicant = new Applicant($firstName, $lastName, $email, $phone, $state, $relocate = "", $years = "", $bio = "", $git = "");
                     $this->_f3->set('SESSION.applicant', $applicant);
                 }
                 $this->_f3->reroute('experience');
@@ -69,7 +71,8 @@ class controller{
         echo $view->render('views/personalInformation.html');
     }
 
-    function experience(){
+    function experience()
+    {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -94,22 +97,29 @@ class controller{
                     $relocate = "None selected";
                 }
 
+                $this->_f3->get('SESSION.applicant')->setRelocate($relocate);
+                $this->_f3->get('SESSION.applicant')->setExperience($years);
+
                 $bio = $_POST['biography'];
                 $git = $_POST['Github'];
-                $years = $_POST['years'];
-                $relocate = $_POST['relocate'];
+//                $years = $_POST['years'];
+//                $relocate = $_POST['relocate'];
 
                 // Put the data in the session array
                 $applicant = $this->_f3->get('SESSION.applicant');
-                $applicant->setExperience($years);
-                $applicant->setRelocate($relocate);
                 $applicant->setBio($bio);
                 $applicant->setGithub($git);
                 $this->_f3->set('SESSION.applicant', $applicant);
 
-                $this->_f3->reroute('jobOpenings');
+                if ($applicant instanceof applicant_SubscribedToList) {
+                    $this->_f3->reroute('jobOpenings');
+                } else {
+                    $this->_f3->reroute('summary');
+                }
+
+
             } else {
-                $this->_f3->reroute('summary');
+                $this->_f3->reroute('experience');
             }
 
 
@@ -126,7 +136,8 @@ class controller{
     }
 
 
-    function jobOpenings(){
+    function jobOpenings()
+    {
         // If the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -146,7 +157,7 @@ class controller{
 
             // Put the data in the session array
             $this->_f3->set('SESSION.mail', $mail);
-            $this->_f3->set('SESSION.vertical',$vertical);
+            $this->_f3->set('SESSION.vertical', $vertical);
 
             // Redirect to summary route
             $this->_f3->reroute('summary');
@@ -159,7 +170,9 @@ class controller{
         $view = new Template();
         echo $view->render('views/jobOpenings.html');
     }
-    function summary(){
+
+    function summary()
+    {
         // Display a view page
         $view = new Template();
         echo $view->render('views/summary.html');
