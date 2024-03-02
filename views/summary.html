@@ -23,21 +23,23 @@ Description: html for summary file
     <div class="row" id="summaryPage">
         <div class="col">
             <ul class="list-group">
-                <li class="list-group-item">Name: {{ @SESSION.firstName }}</li>
-                <li class="list-group-item">Email: {{ @SESSION.email }}</li>
-                <li class="list-group-item">State: {{ @SESSION.state }}</li>
-                <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
-                <li class="list-group-item">Github Link: {{ @SESSION.Github }}</li>
+                <li class="list-group-item">Name: {{ @SESSION.applicant->getFname() }}</li>
+                <li class="list-group-item">Email: {{ @SESSION.applicant->getLname() }}</li>
+                <li class="list-group-item">State: {{ @SESSION.applicant->getState() }}</li>
+                <li class="list-group-item">Phone: {{ @SESSION.applicant->getPhone() }}</li>
+                <li class="list-group-item">Github Link: {{ @SESSION.applicant->getGithub() }}</li>
                 <li class="list-group-item">Experience: {{ @SESSION.applicant->getExperience() }}</li>
                 <li class="list-group-item">Willing to relocate: {{ @SESSION.applicant->getRelocate() }}</li>
-                <li class="list-group-item">Mailing Lists: {{ @SESSION.mail }}</li>
-                <li class="list-group-item">Industry Verticals: {{ @SESSION.vertical }}</li>
+                <check if="{{ @SESSION.applicant instanceof applicant_SubscribedToList }}">
+                    <li class="list-group-item">Mailing Lists: {{ @SESSION.applicant->getJobOpenings()  }}</li>
+                    <li class="list-group-item">Industry Verticals: {{ @SESSION.applicant->getIndustryVerticals()  }}</li>
+                </check>
             </ul>
         </div>
             <div class="col">
                 <img id="profilePicture" src="images/img.png">
                <h3>Summary</h3>
-                <p> {{ @SESSION.biography }}</p>
+                <p> {{ @SESSION.applicant->getBio()  }}</p>
             </div>
         </div>
     <div class="d-flex justify-content-center">

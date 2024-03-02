@@ -102,8 +102,6 @@ class controller
 
                 $bio = $_POST['biography'];
                 $git = $_POST['Github'];
-//                $years = $_POST['years'];
-//                $relocate = $_POST['relocate'];
 
                 // Put the data in the session array
                 $applicant = $this->_f3->get('SESSION.applicant');
@@ -117,12 +115,9 @@ class controller
                     $this->_f3->reroute('summary');
                 }
 
-
             } else {
                 $this->_f3->reroute('experience');
             }
-
-
         }
 
         $this->_f3->set('years', checkedData::getYears());
@@ -155,9 +150,9 @@ class controller
                 $vertical = "None selected";
             }
 
-            // Put the data in the session array
-            $this->_f3->set('SESSION.mail', $mail);
-            $this->_f3->set('SESSION.vertical', $vertical);
+            // Put the data in the application object session array
+            $this->_f3->get('SESSION.applicant')->setJobOpenings($mail);
+            $this->_f3->get('SESSION.applicant')->setIndustryVerticals($vertical);
 
             // Redirect to summary route
             $this->_f3->reroute('summary');
