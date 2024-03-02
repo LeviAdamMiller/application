@@ -37,6 +37,21 @@ Description: html for mailing list page
                     </label><br>
                 </repeat>
             </div>
+            <label class="label">Industry Verticals</label>
+               <div class="container">
+                   <div class="jobOpenings">
+                <repeat group="{{ @IndustryVerticals }}" value="{{ @IndustryVertical}}">
+                    <label>
+                        <input type="checkbox"
+                               name="vertical[]"
+                               id="{{ @IndustryVertical }}"
+                               value="{{ @IndustryVertical }}"
+                        > {{ ucwords(@IndustryVertical) }}
+                        </input>
+                    </label><br>
+                </repeat>
+               </div>
+               </div>
                 <div class="col-md-auto" id="nextButtonContainer">
                     <button type="submit" id="jobButton" class="btn btn-primary">next ></button>
                 </div>

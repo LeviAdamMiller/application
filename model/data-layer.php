@@ -15,8 +15,11 @@ class checkedData{
     }
 
     static function getJobOpenings(){
-        return array('javascript','PHP','java','python','HTML','CSS','reactUS','NodeJs','saaS','health tech','ag tech','hr tech','industrial tech','cyber security');
+        return array('javascript','PHP','java','python','HTML','CSS','reactUS','NodeJs');
     }
 
+    static function getIndustryVerticals(){
+        return array('saaS','health tech','ag tech','hr tech','industrial tech','cyber security');
+    }
 
 }
