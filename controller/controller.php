@@ -1,15 +1,28 @@
 <?php
-
+/**
+Levi Miller
+3/2/24
+Description: controller for application
+controller.php
+ */
 class controller
 {
 
     private $_f3; //Fat-free router
 
+    /**
+     * @param $f3
+     * constructor
+     */
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
 
+    /**
+     * Home page
+     * displaying home page
+     */
     function home()
     {
         // display views page
@@ -17,6 +30,10 @@ class controller
         echo $view->render('views/home.html');
     }
 
+    /**
+     * validates personal info and if there are no errors then checks if mailing lists is checked
+     * then instantiates proper applicant object
+     */
     function personalInformation()
     {
 
@@ -70,7 +87,10 @@ class controller
         $view = new Template();
         echo $view->render('views/personalInformation.html');
     }
-
+    /**
+     * Collects and validates data from experience page if there are no errors
+     * sets data to applicant session array
+     */
     function experience()
     {
 
@@ -130,7 +150,11 @@ class controller
 
     }
 
-
+    /**
+     * Only shows up for applicant_SubscribedToList
+     * collects job mailing list selections and then stores in the applicant_SubscribedToList
+     * object
+     */
     function jobOpenings()
     {
         // If the form has been posted
@@ -152,7 +176,7 @@ class controller
 
             // Put the data in the application object session array
             $this->_f3->get('SESSION.applicant')->setJobOpenings($mail);
-            $this->_f3->get('SESSION.applicant')->setIndustryVerticals($vertical);
+            $this->_f3->get('SESSION.applicant')->setIndustryVertical($vertical);
 
             // Redirect to summary route
             $this->_f3->reroute('summary');
@@ -166,6 +190,9 @@ class controller
         echo $view->render('views/jobOpenings.html');
     }
 
+    /**
+     * displays summary page
+     */
     function summary()
     {
         // Display a view page

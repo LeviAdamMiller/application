@@ -32,7 +32,7 @@ Description: html for summary file
                 <li class="list-group-item">Willing to relocate: {{ @SESSION.applicant->getRelocate() }}</li>
                 <check if="{{ @SESSION.applicant instanceof applicant_SubscribedToList }}">
                     <li class="list-group-item">Mailing Lists: {{ @SESSION.applicant->getJobOpenings()  }}</li>
-                    <li class="list-group-item">Industry Verticals: {{ @SESSION.applicant->getIndustryVerticals()  }}</li>
+                    <li class="list-group-item">Industry Verticals: {{ @SESSION.applicant->getIndustryVertical()  }}</li>
                 </check>
             </ul>
         </div>

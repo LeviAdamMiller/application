@@ -1,8 +1,9 @@
 <?php
-
 /**
- * represents a applicant for AIcompany
  * @author: Levi Miller
+ * 3/2/24
+ * applicant.php
+ * Description represents an applicant for AIcompany
  */
 class Applicant {
 

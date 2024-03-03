@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 Levi Miller
 1/20/24
 index.php: routing page so application is the default directory
@@ -21,17 +21,17 @@ $f3->route('GET /', function () {
     $GLOBALS['con']->home();
 });
 
-//define default route
+//define personal information route
 $f3->route('GET|POST /personal', function ($f3) {
     $GLOBALS['con']->personalInformation();
 });
 
-//define default route
+//define experience route
 $f3->route('GET|POST /experience', function ($f3) {
     $GLOBALS['con']->experience();
 
 });
-//define default route
+//define jobOpenings route
 $f3->route('GET|POST /JobOpenings', function ($f3) {
     $GLOBALS['con']->jobOpenings();
 });
